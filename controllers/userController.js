@@ -6,7 +6,7 @@ class UserController {
             const users = await userService.getAllUsers();
             res.status(200).json(users);
         } catch (err) {
-            next(err);
+
         }
     }
 
@@ -15,9 +15,11 @@ class UserController {
             const user = await userService.getUserById(req.params.id);
             res.status(200).json(user);
         } catch (err) {
-            next(err);
+
         }
     }
 }
 
 module.exports = new UserController();
+
+//npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
